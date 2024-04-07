@@ -1,0 +1,10 @@
+.todo-container {
+    height: 100vh;
+    width: 100%;
+    position: relative;
+    /* background: #2a2e34; */
+    background-image: radial-gradient(circle at 50% 50%, #344955 0%, #2a2e3460 10%);
+    background-size: 30px 30px;
+    /* Adjust the size of the dots */
+    overflow: hidden;
+}

@@ -1,0 +1,88 @@
+.info {
+    position: absolute;
+    top: 7%;
+    left: 0;
+    background: #344955;
+    width: 20%;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    box-shadow: 4px 7px 4px rgba(0, 0, 0, 0.25);
+}
+
+.pfp {
+    width: 120px;
+    height: 120px;
+    border-radius: 100%;
+    background-color: red;
+}
+
+.uname {
+    font-family: 'Varela Round';
+    font-weight: 300;
+    font-size: 2rem;
+    color: #FFFFFF;
+}
+
+.music {
+    width: 75%;
+    height: 25%;
+    background: #103346;
+    display: flex;
+    align-items: center;
+    position: relative;
+
+}
+
+.like {
+    width: 25px;
+    height: 25px;
+    /* background: url('/jamhub/public/images/heartfilled.png'); */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    align-self: flex-start;
+    cursor: pointer;
+}
+
+.logout {
+    position: relative;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-evenly;
+    font-family: 'ABeeZee';
+    color: #FFFFFF;
+    width: 75%;
+    height: 8%;
+    border: 1px solid;
+    z-index: 1;
+        transition: all ease 0.3s;
+}
+
+.logout::before{
+    content: '';
+    transition: all ease 0.3s;
+    position: absolute;
+    width: 100%;
+    height: 0%;
+    top: 0;
+    left: 0;
+    background-color: rgba(252, 252, 252, 0.319);
+    z-index: 0;
+}
+.logout:hover::before{
+    border: none;
+    height: 100%;
+}
+.outicon {
+    width: 10%;
+    height: 80%;
+    background-image: url('../../assets/logout.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    z-index: 1;
+}
