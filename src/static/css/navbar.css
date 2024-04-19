@@ -1,7 +1,7 @@
 .nav {
     position: sticky;
     top: 0px;
-    z-index: 100000;
+    z-index: 100;
     left: 0px;
     background:rgb(166 172 182 / 12%);
     width: 100%;
@@ -16,7 +16,7 @@
     right: 0px;
     display: flex;
     flex-direction: row;
-    width: 30%;
+    width: 34%;
     list-style: none;
     align-items: center;
     justify-content: center;

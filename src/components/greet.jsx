@@ -1,6 +1,7 @@
 import '../static/css/greet.css'
-
+import config from '../config.json'
 import React, { useState } from 'react';
+import notify from '../services/notify';
 const e = new Event("cookiechanged");
 
 
@@ -8,7 +9,7 @@ function Signup() {
 
     const adduser = (e) => {
         e.preventDefault();
-        fetch("http://localhost:8000/signup", {
+        fetch(config.server.url+"/user/add", {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -17,7 +18,8 @@ function Signup() {
             body: JSON.stringify(data),
         }
         ).then(res => res.json()).then(res => {
-            console.log(res);  
+            console.log(res);
+            notify(res.code, res.message);
         })
     } 
 
@@ -62,7 +64,7 @@ function Signup() {
 function SignIn() {
     const login = (event) => {
         event.preventDefault();
-        fetch("http://localhost:8000/login", {
+        fetch(config.server.url + "/user/login", {
             method: 'POST',
             headers: {
                 "Content-Type": "application/json",
@@ -71,7 +73,10 @@ function SignIn() {
             credentials: 'include',
             body: JSON.stringify(data),
         }
-        ).then(msg => msg.text()).then(msg => { console.log(msg); dispatchEvent(e) })
+        ).then(msg => msg.json()).then(msg => {
+            notify(msg.code, msg.message);
+            dispatchEvent(e);
+        })
     } 
 
 

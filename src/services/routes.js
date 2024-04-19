@@ -37,4 +37,8 @@ export const router = createBrowserRouter([
         path: "/codespace",
         element: <>This is coding</>
     },
+    {
+        path: "/",
+        element: <><App /></>
+    },
 ])

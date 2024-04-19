@@ -3,6 +3,11 @@ import {createContext, useEffect, useState } from "react";
 
 export const Curruser = createContext();
 
+const test = {
+    token: 12312321,
+    logged: true,
+    username:"avinash"
+}
 
 const Userstate = (props) => {
     const [token, seTtoken] = useState(Cookies.get('token')); // what is the auth token!
@@ -10,22 +15,26 @@ const Userstate = (props) => {
     const [username, setusername] = useState(Cookies.get('username'));
     
     /// For each user!!! creating a user object
+    const chatuser = {
+        token: token,
+        name: username,
+        rooms:[],
+        croom:0,
+    }
+    
     const user = {
         token: token,
         username: username,
         logged: logstate,
-        
     }
-
+    // const user = test;
     useEffect(() => {
         function handleCookieChange() {
             seTtoken(Cookies.get('token'));
             setusername(Cookies.get('username'));
             if (Cookies.get('token')) {
-                // console.log("Cookies present!");
                 setstate(true);
             } else {
-                // console.log("Cookie is absent");
                 setstate(false);
             }
             console.log(document.cookie);
@@ -37,7 +46,7 @@ const Userstate = (props) => {
     }, []);
 
     return (<>
-        <Curruser.Provider value={user}>
+        <Curruser.Provider value={{user, chatuser}}>
         {props.children}
         </Curruser.Provider>
     </>)

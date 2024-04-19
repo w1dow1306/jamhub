@@ -1,14 +1,17 @@
 import React, { useEffect, useState } from 'react'
 import '../static/css/todos.css'
 import Todo from './todo'
+import config from '../config.json'
 export const Todos = () => {
     const [todos, settodos] = useState([]);
 
     async function gettodos() {
         try {
-            const res = await fetch("http://localhost:2020/todos/all")
+            const res = await fetch(config.server.url + "/todos/my", { credentials: 'include' })
             const val = await res.json()
-            settodos(todos => [...todos, ...val]);
+            if (val) {
+                settodos(todos => [...todos, ...val]);
+            }
         } catch (err) {
             const val = [
                 {

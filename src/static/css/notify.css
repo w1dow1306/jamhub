@@ -1,0 +1,12 @@
+.toast-inp{
+    background: white;
+    border: 1px solid white;
+    border-radius: 12px;
+    padding: 0px 10px;
+    width: 100%;
+    margin: 10px 1px;
+}
+.toast-form{
+    padding: 0px 0px;
+    margin: 0px 0px;
+}

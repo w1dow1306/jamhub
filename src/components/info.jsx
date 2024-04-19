@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 import { Curruser } from '../services/contexts'
 
 const Info = () => {
-    const user = useContext(Curruser);
+    const {user} = useContext(Curruser);
     const logout = () => {
         Cookies.remove('token');
         Cookies.remove('username');
