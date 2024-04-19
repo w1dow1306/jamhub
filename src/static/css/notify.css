@@ -5,8 +5,31 @@
     padding: 0px 10px;
     width: 100%;
     margin: 10px 1px;
+    color:  black;
+    outline: none;
+    cursor: pointer;
 }
 .toast-form{
     padding: 0px 0px;
     margin: 0px 0px;
+}
+
+.edit-task{
+    background: #103746 !important;
+    position: absolute !important;
+    top: 0px !important;
+    left: -50% !important;
+    width: 50vw  !important;
+    z-index: 10000 !important;
+}
+.box{
+    width: 100%;
+    word-break: normal;
+    align-items: center;
+    justify-content: space-between;
+    margin: 2px 0px;
+    display: flex;
+}
+#edit-task{
+    display: flex;
 }

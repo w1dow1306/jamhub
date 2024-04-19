@@ -1,5 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import '../static/css/todo.css'
+import notify from '../services/notify'
+
+
+
+
+
 
 
 const Todo = ({ params, p }) => {
@@ -43,6 +49,13 @@ const Todo = ({ params, p }) => {
             return "#61BC59"
         }
     }
+
+    function handledit(e) {
+        const t_id = e.target.parentNode.parentNode.id;
+        
+        notify("edit",t_id);
+    }
+
     function reveal(e) {
         e.preventDefault();
         let z = e.target.parentNode.parentNode;
@@ -56,7 +69,7 @@ const Todo = ({ params, p }) => {
             <div className="title" style={{ backgroundColor: bg() }}>{params.title}<div className="reveal" onClick={reveal}></div></div>
             <div className="desc">{params.desc}</div>
             <p className='body'>{params.body}
-                <button type='submit' className='rvl'>Edit</button>
+                <button type='submit' className='rvl toast-inp' onClick={handledit}>Edit</button>
             </p>
         </div>
     );

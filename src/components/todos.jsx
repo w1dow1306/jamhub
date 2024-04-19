@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react'
 import '../static/css/todos.css'
 import Todo from './todo'
 import config from '../config.json'
+import notify from '../services/notify'
 export const Todos = () => {
     const [todos, settodos] = useState([]);
 
@@ -33,9 +34,6 @@ export const Todos = () => {
                     status: 2
                 }
             ];
-
-            console.log(val);
-
             settodos(todos => [...todos, ...val]);
         }
     }
@@ -52,6 +50,7 @@ export const Todos = () => {
                     }
                     return <Todo params={todo} p={p} key={index} />
                 })}
+                <input type="button" value="Create" className='toast-inp' style={{position:"absolute",top:"0px",width:"10%"}} onClick={()=>{notify('create-todo',9)}}/>
             </div>
         </>
     )
